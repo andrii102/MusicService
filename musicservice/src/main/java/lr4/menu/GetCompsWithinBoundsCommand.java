@@ -20,7 +20,16 @@ public class GetCompsWithinBoundsCommand implements Command {
     public void execute() {
         try {
             bound1 = inputHandler.getInt("Enter lower bound: ");
-            bound2 = inputHandler.getInt("Enter upper bound: ");            
+            bound2 = inputHandler.getInt("Enter upper bound: ");
+            if (bound1 <0 || bound2 < 0) {
+                logger.warn("Invalid bounds");
+                return;
+            } 
+            if (bound1 > bound2) {
+                int temp = bound1;
+                bound1 = bound2;
+                bound2 = temp;
+            }          
             logger.info("Getting compositions within bounds");
             musicService.getCompsWithinBounds(bound1, bound2);            
         }catch(Exception e){

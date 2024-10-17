@@ -59,10 +59,6 @@ public class MusicService {
         }
     }
 
-    // public void addComposition(Album album, Composition composition) {
-    //     album.addComposition(composition);
-    // }
-
     public void addComposition(Album album, Composition composition) {
         if (album != null && composition != null) {
             album.getCompositions().add(composition); // Add the composition to the album's list
@@ -78,11 +74,6 @@ public class MusicService {
         List<Album> loadedAlbums = FileManager.deserializeAlbums(filePath);
         if (loadedAlbums != null) {
             albums.addAll(loadedAlbums); // Add all loaded albums to the existing list
-            System.out.println("Albums loaded from file: " + filePath);
-        } else {
-            System.out.println("Failed to load albums from file: " + filePath);
         }
     }
-    
 }
-

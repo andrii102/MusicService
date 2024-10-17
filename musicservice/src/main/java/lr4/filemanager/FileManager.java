@@ -13,10 +13,9 @@ public class FileManager {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(albums);
             logger.info("Albums serialized successfully.");
-            System.out.println("Albums serialized successfully.");
+            logger.info("Albums saved to file: " + filePath);
         } catch (IOException e) {
-            //Logging.logger.severe("Failed to serialize albums: " + e.getMessage());
-            System.out.println("Failed to serialize albums: " + e.getMessage());
+            logger.error("Failed to serialize albums: " + e.getMessage(), e);
         }
     }
 
@@ -34,6 +33,7 @@ public class FileManager {
                         throw new ClassCastException("Element is not of type Album");
                     }
                 }
+                logger.info("Albums deserialized successfully.");
                 return albums;
             } else {
                 logger.warn("Object is not of type List");
@@ -41,7 +41,6 @@ public class FileManager {
             }
         } catch (IOException | ClassNotFoundException | ClassCastException e) {
             logger.error("Failed to deserialize albums: " + e.getMessage(), e);
-            System.out.println("Failed to deserialize albums: " + e.getMessage());
         }
         return null;
     }

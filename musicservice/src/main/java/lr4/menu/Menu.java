@@ -51,7 +51,7 @@ public class Menu {
                 if (command != null) {
                     command.execute();
                 } else {
-                    System.out.println("Invalid choice. Please try again.");
+                    logger.warn("Invalid choice");
                 }
                 System.out.println();
             }
@@ -65,4 +65,4 @@ public class Menu {
         return commandMap;
     }
 }
-
+    

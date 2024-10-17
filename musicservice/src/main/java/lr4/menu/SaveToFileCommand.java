@@ -19,12 +19,9 @@ public class SaveToFileCommand implements Command {
     public void execute() {
         try{
             filePath = inputHandler.getString("Enter file path: ");
-            musicService.saveToFile(filePath);
-            logger.info("Albums saved to file: " + filePath);
-            System.out.println("Albums saved to file: " + filePath);            
+            musicService.saveToFile(filePath);           
         }catch(Exception e){
-            logger.info("Failed to save albums to file: " + filePath, e);
-            System.out.println("Failed to save albums to file: " + filePath);
+            logger.error("Failed to save albums to file: " + filePath, e);
         }
     }
 

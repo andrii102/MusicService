@@ -25,7 +25,6 @@ public class AddCompositionCommand implements Command {
         return null; // Return null if not found
     }
 
-
     @Override
     public void execute() {
         try {
@@ -36,7 +35,6 @@ public class AddCompositionCommand implements Command {
             album = findAlbum(albumName);
             if (album == null) {
                 logger.warn("Album not found");
-                System.out.println("Album not found");
                 return; // Exit if the album is not found
             }
 
@@ -54,10 +52,8 @@ public class AddCompositionCommand implements Command {
             musicService.addComposition(album, composition);
 
             logger.info("Composition added successfully");
-            System.out.println("Composition added successfully");
         } catch (Exception e) {
             logger.error("Unexpected error occurred while adding composition to album", e);
-            System.out.println("An unexpected error occurred. Please try again.");
         }
     }
 
@@ -66,4 +62,3 @@ public class AddCompositionCommand implements Command {
         return "Add composition to album";
     }
 }
-

@@ -20,8 +20,7 @@ public class SortByStyleCommand implements Command {
             logger.info("In ascending - a | In descending - d");
             String order = inputHandler.getString("Enter choice: ");
             musicService.sortByStyle(order);
-            logger.info("Albums sorted by style.");
-            System.out.println("Albums sorted by style.");            
+            logger.info("Albums sorted by style.");           
         }catch(Exception e){
             logger.error("Failed to sort albums by style", e);
         }

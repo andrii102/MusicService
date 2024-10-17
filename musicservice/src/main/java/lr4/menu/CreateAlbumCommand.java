@@ -27,7 +27,6 @@ public class CreateAlbumCommand implements Command {
             logger.info("Album created successfully");           
         }catch(Exception e){
             logger.error("Unexpected error occurred while creating album", e);
-            System.out.println("An unexpected error occurred. Please try again.");
         }
 
     }

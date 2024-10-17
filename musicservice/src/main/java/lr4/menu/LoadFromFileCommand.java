@@ -31,4 +31,3 @@ public class LoadFromFileCommand implements Command {
         return "Load from file";
     }
 }
-
